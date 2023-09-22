@@ -1,4 +1,34 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
+
+const toRight = keyframes`
+    from{
+        left:-300px;
+    }
+    to{
+        left:0px;
+    }
+`;
+
+const toLeft = keyframes`
+    from{
+        right:-220px;
+    }
+    to{
+        right:0;
+    }
+`;
+
+const toBig = keyframes`
+    from{
+        left:0px;
+        transform: scale(0);
+    }
+    to{
+       // transform-origin: 0 50%;
+        transform: scale(2);
+    }
+`;
 
 export const Container = styled.div`
   padding: 20px;
@@ -43,13 +73,35 @@ export const Main = styled.div`
     margin-top: 6px;
     margin-bottom: 28px;
   }
-  .leftTextBox {
+
+  .rightTextBox {
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: end;
+    position: relative;
+    right: 240px;
+    animation: ${toLeft};
+    animation-fill-mode: both;
+    animation-duration: 1s;
   }
 `;
 
+export const LeftTextBox = styled.div`
+  width: 100%;
+  position: relative;
+  padding-left: 20px;
+  margin: 10px 0;
+  left: -300px;
+  animation: ${toRight};
+  animation-fill-mode: both;
+  animation-duration: 1s;
+
+  img {
+    position: absolute;
+    top: -15px;
+    left: 0;
+  }
+`;
 export const Detail = styled.div`
   width: fit-content;
   height: fit-content;
@@ -67,7 +119,7 @@ export const Detail = styled.div`
   }
 `;
 
-export const BotText = styled.div`
+export const Message = styled.div`
   border: 0.5px solid black;
   border-radius: 10px;
   max-width: 200px;
