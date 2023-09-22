@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Header, ContentArea, KeywordCell, TotalNumber, ProductListArea, ProductCell, ImageBox, PageEnd, } from './style.js';
+import { Container, Header,Circle1, Circle2,  ContentArea, KeywordCell, TotalNumber, ProductListArea, ProductCell, ImageBox, PageEnd, } from './style.js';
 
 
 const ProductList = () => {
@@ -17,8 +17,10 @@ const ProductList = () => {
         <img onClick={goBack} src="/assets/icon/back.svg" width={28} height={17} />
         <img onClick={goToHome} src="/assets/icon/home.svg" width={28} height={31} />
       </Header>
-      <img style={{ position: "absolute", top: 250, right: 0, zIndex: -1 }} src="/assets/image/product_list_circle.svg" />
-      <img style={{ position: "absolute", bottom: -50, left: 0, zIndex: -1 }} src="/assets/image/product_list_circle2.svg" />
+      {/* <img style={{ position: "absolute", top: 250, right: 0, zIndex: -1 }} src="/assets/image/product_list_circle.svg" />
+      <img style={{ position: "absolute", bottom: -50, left: 0, zIndex: -1 }} src="/assets/image/product_list_circle2.svg" /> */}
+      <Circle1></Circle1>
+      <Circle2></Circle2>
 
       <ContentArea>
         <KeywordCell>after school</KeywordCell>
