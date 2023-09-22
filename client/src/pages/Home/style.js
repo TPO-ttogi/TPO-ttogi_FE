@@ -64,5 +64,9 @@ export const FooterText = styled.div`
    font-size:12px;
    margin-top:26px;
    margin-bottom:20px;
+   margin-left:auto;
+   margin-right:auto;
+   padding-left:20px;
+   padding-right:20px;
 
 `

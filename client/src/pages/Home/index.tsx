@@ -1,8 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { CircleArea, Circle1, Circle2, Circle3, ImageArea, KeywordCell, FooterText} from './style.js';
 
 
 const Home = () => {
+  const navigate=useNavigate();
+  const goToProductList=()=>{
+    navigate("/ProductList")
+  }
   return (
   <div style={{ width: "100%" }}>
     <img style={{ width:"120%", marginLeft:"-5%",marginTop:"-5%",marginRight:"-5%",zIndex:1,}} src="/assets/image/main_yellow_circles.svg" />
@@ -14,7 +19,7 @@ const Home = () => {
 
 
     <div style={{ width: "100%", display: "flex", flexDirection: "row", flexWrap: "wrap", paddingLeft: "20px", paddingRight: "20px", textAlign: "center", justifyContent: "center" }}>
-      <KeywordCell>🏠 comfort food</KeywordCell>
+      <KeywordCell onClick={goToProductList}>🏠 comfort food</KeywordCell>
       <KeywordCell>🥨 snack</KeywordCell>
       <KeywordCell>🏫 after school</KeywordCell>
       <KeywordCell>🌃 late-night meal</KeywordCell>
