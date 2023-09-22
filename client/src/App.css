@@ -1,3 +1,16 @@
+@font-face {
+  font-family: "EF_jejudoldam";
+  src: url("../public/assets/fonts/EF_jejudoldam.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HakgyoansimWoojuR";
+  src: url("../public/assets/fonts/HakgyoansimWoojuR.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 .App {
   text-align: center;
 }
