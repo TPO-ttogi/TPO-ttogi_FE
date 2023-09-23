@@ -17,6 +17,7 @@ import {
 const Product = () => {
   const navigate = useNavigate();
   const [genAIAnswer, setGenAIAnswer] = useState("...");
+  const [userSpicyAnswer, setUserSpicyAnswer] = useState();
 
   const getGenAIAnswer = async () => {
     const response = await axios.post(
@@ -119,6 +120,42 @@ const Product = () => {
             <img src="/assets/image/bot_profile.svg" width={39} height={36} />
             <Message>우리 떡볶이 먹으러갈래?</Message>
           </LeftTextBox>
+          {/* 맵기 질문&답 */}
+          <LeftTextBox style={{ animationDelay: "5s" }}>
+            <img src="/assets/image/bot_profile.svg" width={39} height={36} />
+            <Message>Do you like spicy food?</Message>
+          </LeftTextBox>
+          <AnswerBox
+            className="rightTextBox"
+            style={{
+              animationDelay: "6s",
+              marginLeft: "auto",
+              width: "fit-content",
+              paddingTop: 7,
+              paddingBottom: 7,
+              paddingLeft: 10,
+              paddingRight: 10,
+            }}
+          >
+            <SpicyAnswer
+              onClick={() => setUserSpicyAnswer("Yes")}
+              answerIs={"Yes"}
+            >
+              Yes, I love spicy food!!!
+            </SpicyAnswer>
+            <SpicyAnswer
+              onClick={() => setUserSpicyAnswer("SortOf")}
+              answerIs={"SortOf"}
+            >
+              Yea, sort of?
+            </SpicyAnswer>
+            <SpicyAnswer
+              onClick={() => setUserSpicyAnswer("no")}
+              answerIs={"No"}
+            >
+              No, I don't. My stomach hurts.
+            </SpicyAnswer>
+          </AnswerBox>
         </Main>
       </Container>
       <img src="/assets/image/background_bottom.svg" width={"100%"} />
