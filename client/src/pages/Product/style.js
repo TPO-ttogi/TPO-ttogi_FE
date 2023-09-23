@@ -12,7 +12,7 @@ const toRight = keyframes`
 
 const toLeft = keyframes`
     from{
-        right:-220px;
+        right:-300px;
     }
     to{
         right:0;
@@ -147,17 +147,14 @@ export const Graph = styled.div`
 
 export const AnswerBox = styled.div`
   display: flex;
+  animation: ${toLeft} 1s both;
   flex-direction: column;
   border: 0.5px solid black;
   border-radius: 10px;
-  padding: 10px 20px;
-  position: absolute;
+  padding: 7px 10px;
+  position: relative;
   right: -300px;
-  animation-fill-mode: both;
-  animation-duration: 1s;
-  &.signal {
-    animation: ${(props) => (props.start ? `${toLeft}` : "none")};
-  }
+  //animation: ${(props) => (props.start ? `${toLeft} 1s both` : "none")};
 `;
 
 export const SpicyAnswer = styled.div`
