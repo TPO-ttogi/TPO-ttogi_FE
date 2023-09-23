@@ -42,6 +42,9 @@ const Product = () => {
   useEffect(() => {
     getGenAIAnswer();
   }, []);
+  useEffect(() => {
+    console.log(genAIAnswer);
+  }, [genAIAnswer]);
 
   return (
     <>
@@ -79,23 +82,19 @@ const Product = () => {
           <RightTextBox style={{ animationDelay: "1s" }}>
             <Message>떡볶이가 뭐야?</Message>
           </RightTextBox>
-          <LeftTextBox
-            style={{ animationDelay: "2s" }}
-            className="signal"
-            start={genAIAnswer !== "..."}
-          >
+          <LeftTextBox className="signal" start={genAIAnswer !== "..."}>
             <img src="/assets/image/bot_profile.svg" width={39} height={36} />
             <Message>{genAIAnswer}</Message>
           </LeftTextBox>
           <RightTextBox
             className="signal"
-            style={{ animationDelay: "3s" }}
+            style={{ animationDelay: "1s" }}
             start={genAIAnswer !== "..."}
           >
             <Message>그거 맵지 않아?</Message>
           </RightTextBox>
           <LeftTextBox
-            style={{ animationDelay: "4s" }}
+            style={{ animationDelay: "2s" }}
             className="big signal"
             start={genAIAnswer !== "..."}
           >
@@ -117,7 +116,7 @@ const Product = () => {
           <LeftTextBox
             className="signal"
             start={genAIAnswer !== "..."}
-            style={{ animationDelay: "5s" }}
+            style={{ animationDelay: "3s" }}
           >
             <img src="/assets/image/bot_profile.svg" width={39} height={36} />
             <Message>우리 떡볶이 먹으러갈래?</Message>
@@ -126,7 +125,7 @@ const Product = () => {
           <LeftTextBox
             className="signal"
             start={genAIAnswer !== "..."}
-            style={{ animationDelay: "6s" }}
+            style={{ animationDelay: "4s" }}
           >
             <img src="/assets/image/bot_profile.svg" width={39} height={36} />
             <Message>Do you like spicy food?</Message>
@@ -135,13 +134,9 @@ const Product = () => {
             className="signal"
             start={genAIAnswer !== "..."}
             style={{
-              animationDelay: "7s",
+              animationDelay: "10s",
               marginLeft: "auto",
               width: "fit-content",
-              paddingTop: 7,
-              paddingBottom: 7,
-              paddingLeft: 10,
-              paddingRight: 10,
             }}
           >
             <SpicyAnswer
