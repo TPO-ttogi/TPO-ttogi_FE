@@ -19,15 +19,11 @@ const toLeft = keyframes`
     }
 `;
 
-const toBig = keyframes`
-    from{
-        left:0px;
-        transform: scale(0);
-    }
-    to{
-       // transform-origin: 0 50%;
-        transform: scale(2);
-    }
+const toLong = keyframes`
+  from{
+    width: 0;
+  }
+  
 `;
 
 export const Container = styled.div`
@@ -73,17 +69,6 @@ export const Main = styled.div`
     margin-top: 6px;
     margin-bottom: 28px;
   }
-
-  .rightTextBox {
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    position: relative;
-    right: 240px;
-    animation: ${toLeft};
-    animation-fill-mode: both;
-    animation-duration: 1s;
-  }
 `;
 
 export const LeftTextBox = styled.div`
@@ -95,13 +80,30 @@ export const LeftTextBox = styled.div`
   animation: ${toRight};
   animation-fill-mode: both;
   animation-duration: 1s;
-
+  &.signal {
+    animation: ${(props) => (props.start ? `${toRight}` : "none")};
+  }
   img {
     position: absolute;
     top: -15px;
     left: 0;
   }
 `;
+
+export const RightTextBox = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  position: relative;
+  right: -300px;
+  animation: ${toLeft};
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  &.signal {
+    animation: ${(props) => (props.start ? `${toLeft}` : "none")};
+  }
+`;
+
 export const Detail = styled.div`
   width: fit-content;
   height: fit-content;
@@ -130,25 +132,46 @@ export const Message = styled.div`
   margin-bottom: 10px;
 `;
 
-export const AnswerBox=styled.div`
-  animation-delay: 6s;
-  display:flex;
-  flex-direction:column;
-  border:0.5px solid black;
-  border-radius:10px;
-  padding:10px 20px;
+export const Graph = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  width: ${(props) => 180 * props.percent * 0.01}px;
+  background-color: ${(props) => props.color};
+  margin-right: 5px;
+  animation: ${toLong};
+  animation-delay: 4.2s;
+  animation-fill-mode: both;
+  animation-duration: 1.5s;
+`;
 
-  
-`
+export const AnswerBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid black;
+  border-radius: 10px;
+  padding: 10px 20px;
+  position: absolute;
+  right: -300px;
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  &.signal {
+    animation: ${(props) => (props.start ? `${toLeft}` : "none")};
+  }
+`;
 
-export const SpicyAnswer=styled.div`
+export const SpicyAnswer = styled.div`
   max-width: 200px;
   padding: 10px 14px;
-  border-radius:10px;
+  border-radius: 10px;
   box-sizing: border-box;
   font-family: "HakgyoansimWoojuR";
   font-size: 12px;
   margin-bottom: 3px;
-  background-color:${(props)=>props.answerIs==="Yes"? "#FF9F9F": props.answerIs==="SortOf"? "#FFED8E":"#A4EA82"}
-
-`
+  background-color: ${(props) =>
+    props.answerIs === "Yes"
+      ? "#FF9F9F"
+      : props.answerIs === "SortOf"
+      ? "#FFED8E"
+      : "#A4EA82"};
+`;
