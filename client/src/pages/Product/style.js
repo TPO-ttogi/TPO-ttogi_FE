@@ -129,3 +129,26 @@ export const Message = styled.div`
   font-size: 12px;
   margin-bottom: 10px;
 `;
+
+export const AnswerBox=styled.div`
+  animation-delay: 6s;
+  display:flex;
+  flex-direction:column;
+  border:0.5px solid black;
+  border-radius:10px;
+  padding:10px 20px;
+
+  
+`
+
+export const SpicyAnswer=styled.div`
+  max-width: 200px;
+  padding: 10px 14px;
+  border-radius:10px;
+  box-sizing: border-box;
+  font-family: "HakgyoansimWoojuR";
+  font-size: 12px;
+  margin-bottom: 3px;
+  background-color:${(props)=>props.answerIs==="Yes"? "#FF9F9F": props.answerIs==="SortOf"? "#FFED8E":"#A4EA82"}
+
+`
