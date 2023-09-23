@@ -12,6 +12,8 @@ import {
   LeftTextBox,
   Graph,
   RightTextBox,
+  AnswerBox,
+  SpicyAnswer,
 } from "./style.js";
 
 const Product = () => {
@@ -121,14 +123,19 @@ const Product = () => {
             <Message>우리 떡볶이 먹으러갈래?</Message>
           </LeftTextBox>
           {/* 맵기 질문&답 */}
-          <LeftTextBox style={{ animationDelay: "5s" }}>
+          <LeftTextBox
+            className="signal"
+            start={genAIAnswer !== "..."}
+            style={{ animationDelay: "6s" }}
+          >
             <img src="/assets/image/bot_profile.svg" width={39} height={36} />
             <Message>Do you like spicy food?</Message>
           </LeftTextBox>
           <AnswerBox
-            className="rightTextBox"
+            className="signal"
+            start={genAIAnswer !== "..."}
             style={{
-              animationDelay: "6s",
+              animationDelay: "7s",
               marginLeft: "auto",
               width: "fit-content",
               paddingTop: 7,
