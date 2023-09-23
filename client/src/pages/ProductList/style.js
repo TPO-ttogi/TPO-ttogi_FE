@@ -1,4 +1,42 @@
+import { keyframes } from "@emotion/react";
 import styled from '@emotion/styled'
+
+const toRight = keyframes`
+   0% {
+      transform: translate(0, 0);
+   }
+   25% {
+      transform: translate(5px, 0);
+   }
+   50% {
+      transform: translate(5px, 10px);
+   }
+   75% {
+      transform: translate(0, 10px);
+   }
+   100% {
+      transform: translate(0, 0);
+   }
+`;
+const toLeft = keyframes`
+   0% {
+      transform: translate(0, 0);
+   }
+   25% {
+      transform: translate(0px, 10);
+   }
+   50% {
+      transform: translate(10px, 10px);
+   }
+   75% {
+      transform: translate(10px, 0px);
+   }
+   100% {
+      transform: translate(0, 0);
+   }
+`;
+
+
 
 export const Container = styled.div`
    width:100%;
@@ -13,6 +51,38 @@ export const Header = styled.div`
   align-items: center;
   margin:20px;
 `;
+
+
+export const Circle1 = styled.div`
+   position:absolute;
+   bottom:-10px;
+   left:-20px;;
+   width:140px;
+   height:150px;
+   border-radius:50%;
+   background-color:#FFF100;
+   transition:transform 40s ease-in-out;
+   transform: translate(10px, 10px);
+   z-index:-1;
+   animation: ${toRight} infinite;
+   animation-fill-mode: both;
+   animation-duration: 5s;
+ 
+   
+`
+export const Circle2 = styled.div`
+   position:absolute;
+   top:300px;
+   right:2px;
+   width:120px;
+   height:110px;
+   border-radius:50%;
+   background-color:#FFF100;
+   z-index:-1;
+   animation: ${toLeft} infinite;
+   animation-fill-mode: both;
+   animation-duration: 5s;
+`
 
 export const ContentArea=styled.div`
    padding-left: 20px;

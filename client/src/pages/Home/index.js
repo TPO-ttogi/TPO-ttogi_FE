@@ -9,16 +9,20 @@ const Home = () => {
     navigate("/ProductList")
   }
   return (
-  <div style={{ width: "100%" }}>
-    <img style={{ width:"120%", marginLeft:"-5%",marginTop:"-5%",marginRight:"-5%",zIndex:1,}} src="/assets/image/main_yellow_circles.svg" />
+  <div style={{ width: "100%" , paddingTop:"80px"}}>
+    {/* <img style={{ width:"120%", marginLeft:"-5%",marginTop:"-5%",marginRight:"-5%",zIndex:1,}} src="/assets/image/main_yellow_circles.svg" /> */}
 
-    <div style={{ width: "100%", display: "flex", flexDirection: "row", flexWrap: "wrap", marginBottom:"36px", paddingLeft: "20px", paddingRight: "20px", textAlign: "center", justifyContent: "center" }}>
+    <Circle1></Circle1>
+    <Circle2></Circle2>
+    <Circle3></Circle3>
+    
+    <div style={{ width: "100%", display: "flex", flexDirection: "row", flexWrap: "wrap", marginBottom:"36px", paddingLeft: "20px", paddingRight: "20px", textAlign: "center", justifyContent: "center" , zIndex:100}}>
       <img style={{ width: "64.8%", marginRight: "auto", marginLeft: "auto" }} src="/assets/logo/TPO_logo.svg" />
       <img style={{ width: "64.8%", marginRight: "auto", marginLeft: "auto" }} src="/assets/image/ottogi_main_character.svg" />
     </div>
 
 
-    <div style={{ width: "100%", display: "flex", flexDirection: "row", flexWrap: "wrap", paddingLeft: "20px", paddingRight: "20px", textAlign: "center", justifyContent: "center" }}>
+    <div style={{ width: "100%", display: "flex", flexDirection: "row", flexWrap: "wrap", paddingLeft: "20px", paddingRight: "20px", textAlign: "center", justifyContent: "center" , zIndex:100}}>
       <KeywordCell onClick={goToProductList}>🏠 comfort food</KeywordCell>
       <KeywordCell>🥨 snack</KeywordCell>
       <KeywordCell>🏫 after school</KeywordCell>

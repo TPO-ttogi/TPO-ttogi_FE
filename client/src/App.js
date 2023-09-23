@@ -1,8 +1,8 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Home from "./pages/Home/index.tsx";
-import ProductList from "./pages/ProductList/index.tsx";
-import Product from "./pages/Product/index.jsx";
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import Home from "./pages/Home/index.js"
+import ProductList from "./pages/ProductList/index.js"
+import Product from "./pages/Product/index.js"
 
 function App() {
   return (

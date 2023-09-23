@@ -144,3 +144,39 @@ export const Graph = styled.div`
   animation-fill-mode: both;
   animation-duration: 1.5s;
 `;
+
+export const Graph = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  width: ${(props) => 180 * props.percent * 0.01}px;
+  background-color: ${(props) => props.color};
+  margin-right: 5px;
+  animation: ${toLong};
+  animation-delay: 4.2s;
+  animation-fill-mode: both;
+  animation-duration: 1.5s;
+`;
+
+export const AnswerBox=styled.div`
+  animation-delay: 6s;
+  display:flex;
+  flex-direction:column;
+  border:0.5px solid black;
+  border-radius:10px;
+  padding:10px 20px;
+
+  
+`
+
+export const SpicyAnswer=styled.div`
+  max-width: 200px;
+  padding: 10px 14px;
+  border-radius:10px;
+  box-sizing: border-box;
+  font-family: "HakgyoansimWoojuR";
+  font-size: 12px;
+  margin-bottom: 3px;
+  background-color:${(props)=>props.answerIs==="Yes"? "#FF9F9F": props.answerIs==="SortOf"? "#FFED8E":"#A4EA82"}
+
+`
