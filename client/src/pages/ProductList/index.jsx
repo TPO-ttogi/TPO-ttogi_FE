@@ -1,16 +1,28 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate,useLocation } from "react-router-dom";
 import { Container, Header,Circle1, Circle2,  ContentArea, KeywordCell, TotalNumber, ProductListArea, ProductCell, ImageBox, PageEnd, } from './style.js';
-
+import axios from "axios"
 
 const ProductList = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const keywordId = location.state;
+  const [data,setData]=useState([]);
   const goToHome = () => {
     navigate("/")
   }
   const goBack = () => {
     navigate(-1);
   }
+
+  const getData=async()=>{
+    const response=await axios.get(`/keyword/${keywordId}`);
+    setData(response.data)
+  }
+  useEffect(()=>{
+    getData();
+
+  },[])
   return (
     <Container>
       <Header>
@@ -24,20 +36,19 @@ const ProductList = () => {
 
       <ContentArea>
         <KeywordCell>after school</KeywordCell>
-        <TotalNumber>Total 12</TotalNumber>
+        <TotalNumber>Total {data?.length}</TotalNumber>
         <ProductListArea>
-          <ProductCell >
-            <ImageBox>
-              <img src="/assets/icon/back.svg" width="30" height="auto" />
-            </ImageBox>
-            <div style={{ marginTop: "16px" }}>SNACK SHOP</div>
-          </ProductCell>
-          <ProductCell>
-            <ImageBox>
-              <img src="/assets/icon/back.svg" width="30" height="auto" />
-            </ImageBox>
-            <div style={{ marginTop: "16px" }}>SNACK SHOP</div>
-          </ProductCell>
+          {data?.map((item)=>  
+          
+            <ProductCell onClick={()=>navigate('/product',{state:item.id})}>
+              <ImageBox>
+      <img src={item.imageUrl} width="100%" height="130px" />
+    </ImageBox>
+    <div style={{ marginTop: "16px" }}>{item.name_en}</div>
+  </ProductCell>
+            
+          )}
+        
 
         </ProductListArea>
         <PageEnd >

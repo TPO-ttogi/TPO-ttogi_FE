@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import axios from "axios";
 
 import {
@@ -20,12 +20,22 @@ const Product = () => {
   const navigate = useNavigate();
   const [genAIAnswer, setGenAIAnswer] = useState("...");
   const [userSpicyAnswer, setUserSpicyAnswer] = useState();
-
+  const location = useLocation();
+  const keywordId = location.state;
+  const [data, setData]=useState();
+  const getData=async()=>{
+    const response=await axios.get(`/product/${keywordId}`);
+    console.log(response);
+    setData(response.data)
+  }
+useEffect(()=>{
+getData();
+},[])
   const getGenAIAnswer = async () => {
     const response = await axios.post(
       "https://api.openai.com/v1/chat/completions",
       {
-        messages: [{ role: "user", content: "What is Tteok bokki" }],
+        messages: [{ role: "user", content: "What is"+data.name_en }],
         model: "gpt-3.5-turbo",
       },
       {
@@ -65,22 +75,22 @@ const Product = () => {
         </Header>
         <Keyword>after school</Keyword>
         <Main>
-          <div className="title">Tteok bokki</div>
-          <div className="subTitle">(떡볶이)</div>
+          <div className="title">{data.food_en}</div>
+          <div className="subTitle">({data.food_kr})</div>
           <Detail>
             <img
-              src="http://www.ottogi.co.kr/pds/product/2021-07-28_60726959[9].jpg"
+              src={data.imageUrl}
               width={147}
               height={147}
             />
-            <div className="name">SNACK SHOP RICE TTEOK-BOKKI</div>
+            <div className="name">{data.name_en}</div>
           </Detail>
           <LeftTextBox>
             <img src="/assets/image/bot_profile.svg" width={39} height={36} />
-            <Message>우리 떡볶이 먹으러갈래?</Message>
+            <Message>wanna go grab some {data.food_en}</Message>
           </LeftTextBox>
           <RightTextBox style={{ animationDelay: "1s" }}>
-            <Message>떡볶이가 뭐야?</Message>
+            <Message>What is {data.food_en}?</Message>
           </RightTextBox>
           <LeftTextBox className="signal" start={genAIAnswer !== "..."}>
             <img src="/assets/image/bot_profile.svg" width={39} height={36} />

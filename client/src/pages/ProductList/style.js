@@ -130,8 +130,8 @@ export const ProductCell=styled.div`
 
 export const ImageBox=styled.div`
    width:100%;
-   padding-bottom:45%;
-   padding-top:45%;
+   padding-bottom:10px;
+   padding-top:10px;
    border:1px solid #000000;
    text-align:center;
 `
